@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gasolinera5834163.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+            <Image
+            Source="dotnet_bot.png"
+            HeightRequest="185"
+            Aspect="AspectFit"
+            SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Entry x:Name="Entryprimernumero"
+               Placeholder="Ingresa el número galones comprados"
+               Keyboard="Numeric"/>
+            <Entry x:Name="Entrysegundonumero"
+               Placeholder="Ingresa el precio por litro"
+               Keyboard="Numeric"/>
+            <Label x:Name="labelresultado"
+               FontSize="24"
+               HorizontalOptions="Center"/>
+
+            <Button
+            x:Name="TotalBtn"
+            Text="Click me" 
+            Clicked="TotalBtn_Clicked"
+            HorizontalOptions="Center" />
+
+            <ListView x:Name="listview" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listview_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding Galones}" FontSize="17" FontAttributes="Bold"></Label>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Litros}"></Label>
+                                    <Label Grid.Column="2" Text="{Binding Total}" FontAttributes="Bold"></Label>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
